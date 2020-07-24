@@ -18,7 +18,7 @@ class Solution:
         x = reduce(lambda a, b: a ^ b, nums)
             
         # get the first bit differing between the answers
-        first_bit = int(2 ** log(x & -x, 2))
+        first_bit = x & -x
         
         # determine one of the answers by xor'ing only the numbers that share the differing bit
         answer1 = reduce(lambda a, b: a ^ b, filter(lambda x: x & first_bit, nums))
